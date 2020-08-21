@@ -1,0 +1,261 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "question_service.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/queSet/create": {
+      "post": {
+        "operationId": "PaperService_CreateQueSet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/edu_paperCreateQueSetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/edu_paperCreateQueSetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PaperService"
+        ]
+      }
+    },
+    "/v1/queSet/search": {
+      "get": {
+        "operationId": "PaperService_SearchQueSet",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/edu_paperSearchQueSetResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/runtimeStreamError"
+                }
+              },
+              "title": "Stream result of edu_paperSearchQueSetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter.max_price_usd",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "filter.min_qset_filter",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "filter.min_number",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "tags": [
+          "PaperService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "QueSetAnswer": {
+      "type": "object",
+      "properties": {
+        "answer_id": {
+          "type": "string"
+        },
+        "answer_value": {
+          "type": "string"
+        },
+        "correct_answer": {
+          "type": "string"
+        }
+      }
+    },
+    "QueSetQuestion": {
+      "type": "object",
+      "properties": {
+        "question_id": {
+          "type": "string"
+        },
+        "question_value": {
+          "type": "string"
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QueSetAnswer"
+          }
+        }
+      }
+    },
+    "edu_paperCreateQueSetRequest": {
+      "type": "object",
+      "properties": {
+        "QueSet": {
+          "$ref": "#/definitions/edu_paperQueSet"
+        }
+      }
+    },
+    "edu_paperCreateQueSetResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "edu_paperFilter": {
+      "type": "object",
+      "properties": {
+        "max_price_usd": {
+          "type": "number",
+          "format": "double"
+        },
+        "min_qset_filter": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "min_number": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "edu_paperQueSet": {
+      "type": "object",
+      "properties": {
+        "paper_id": {
+          "type": "string"
+        },
+        "paper_type": {
+          "type": "string"
+        },
+        "paper_name": {
+          "type": "string"
+        },
+        "paper_duration": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QueSetQuestion"
+          }
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "edu_paperSearchQueSetResponse": {
+      "type": "object",
+      "properties": {
+        "QueSet": {
+          "$ref": "#/definitions/edu_paperQueSet"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

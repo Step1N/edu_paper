@@ -1,0 +1,21 @@
+package: edu_paper
+import:
+- package: github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+  version: v1.1.4
+import: []
+import:
+- package: github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+  version: v1.1.4
+import: []
+import:
+- package: github.com/google/uuid
+  version: v1.1.4
+import: []
+import:
+- package: github.com/jinzhu/copierg
+  version: v1.1.4
+import: []
+import:
+- package: github.com/stretchr/testify
+  version: v1.1.4
+import: []

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package edu_paper;
+
+option go_package = ".;edupb";
+
+
+message Filter {
+  double max_price_usd = 1;
+  uint32 min_qset_filter = 2;
+  double min_number = 3;
+}

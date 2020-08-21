@@ -1,0 +1,135 @@
+hash: 85e28750c65f0a5b6ddcf83516bc6726b47221393db315db55820e457e4b1647
+updated: 2020-08-21T12:57:01.826732+05:30
+imports:
+- name: github.com/golang/protobuf
+  version: d04d7b157bb510b1e0c10132224b616ac0e26b17
+  subpackages:
+  - descriptor
+  - jsonpb
+  - proto
+  - protoc-gen-go/descriptor
+  - ptypes
+  - ptypes/any
+  - ptypes/duration
+  - ptypes/timestamp
+  - ptypes/wrappers
+- name: github.com/google/uuid
+  version: 0e4e31197428a347842d152773b4cace4645ca25
+- name: github.com/grpc-ecosystem/grpc-gateway
+  version: 5a432166606fee3c3686df2be3c5cf914d3bc30b
+  subpackages:
+  - internal
+  - runtime
+  - utilities
+- name: github.com/jinzhu/copier
+  version: b57f9002281ac48ed8cbc489b1e91121e1a0824c
+- name: golang.org/x/net
+  version: 3edf25e44fccea9e11b919341e952fca722ef460
+  subpackages:
+  - http/httpguts
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - trace
+- name: golang.org/x/sys
+  version: 1fb795427249579fe8cc3cb81def7fc9d08d640b
+  subpackages:
+  - internal/unsafeheader
+  - unix
+- name: golang.org/x/text
+  version: 23ae387dee1f90d29a23c0e87ee0b46038fbed0e
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
+- name: google.golang.org/genproto
+  version: f69a88009b70a94c67e3910bf1663f5df9fbfc6d
+  subpackages:
+  - googleapis/api/annotations
+  - googleapis/api/httpbody
+  - googleapis/rpc/status
+  - protobuf/field_mask
+- name: google.golang.org/grpc
+  version: d16bb4c338a5470a3b3bc30750fafc26cafd215c
+  subpackages:
+  - attributes
+  - backoff
+  - balancer
+  - balancer/base
+  - balancer/grpclb/state
+  - balancer/roundrobin
+  - binarylog/grpc_binarylog_v1
+  - codes
+  - connectivity
+  - credentials
+  - encoding
+  - encoding/proto
+  - grpclog
+  - internal
+  - internal/backoff
+  - internal/balancerload
+  - internal/binarylog
+  - internal/buffer
+  - internal/channelz
+  - internal/credentials
+  - internal/envconfig
+  - internal/grpclog
+  - internal/grpcrand
+  - internal/grpcsync
+  - internal/grpcutil
+  - internal/resolver/dns
+  - internal/resolver/passthrough
+  - internal/serviceconfig
+  - internal/status
+  - internal/syscall
+  - internal/transport
+  - keepalive
+  - metadata
+  - peer
+  - reflection
+  - reflection/grpc_reflection_v1alpha
+  - resolver
+  - serviceconfig
+  - stats
+  - status
+  - tap
+- name: google.golang.org/protobuf
+  version: 16365ed3d8cfe6a4797229f0b1b7588d0259755b
+  subpackages:
+  - encoding/protojson
+  - encoding/prototext
+  - encoding/protowire
+  - internal/descfmt
+  - internal/descopts
+  - internal/detrand
+  - internal/encoding/defval
+  - internal/encoding/json
+  - internal/encoding/messageset
+  - internal/encoding/tag
+  - internal/encoding/text
+  - internal/errors
+  - internal/filedesc
+  - internal/filetype
+  - internal/flags
+  - internal/genid
+  - internal/impl
+  - internal/order
+  - internal/pragma
+  - internal/set
+  - internal/strs
+  - internal/version
+  - proto
+  - reflect/protodesc
+  - reflect/protoreflect
+  - reflect/protoregistry
+  - runtime/protoiface
+  - runtime/protoimpl
+  - types/descriptorpb
+  - types/known/anypb
+  - types/known/durationpb
+  - types/known/fieldmaskpb
+  - types/known/timestamppb
+  - types/known/wrapperspb
+testImports: []

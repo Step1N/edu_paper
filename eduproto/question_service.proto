@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package edu_paper;
+
+option go_package = ".;edupb";
+import "question_set_msg.proto";
+import "search_filter_msg.proto";
+
+import "google/api/annotations.proto";
+
+
+message CreateQueSetRequest { QueSet QueSet = 1; }
+
+message CreateQueSetResponse { string id = 1; }
+
+message SearchQueSetRequest { Filter filter = 1; }
+
+message SearchQueSetResponse { QueSet QueSet = 1; }
+
+service PaperService {
+  rpc CreateQueSet(CreateQueSetRequest) returns (CreateQueSetResponse) {
+    option (google.api.http) = {
+      post : "/v1/queSet/create"
+      body : "*"
+    };
+  };
+  rpc SearchQueSet(SearchQueSetRequest) returns (stream SearchQueSetResponse) {
+    option (google.api.http) = {
+      get : "/v1/queSet/search"
+    };
+  };
+}

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package edu_paper;
+
+option go_package = ".;edupb";
+
+import "google/protobuf/timestamp.proto";
+
+message QueSet {
+  string paper_id = 1;
+  string paper_type = 2;
+  string paper_name = 3;
+  uint32 paper_duration = 4;
+
+  message Answer {
+    string answer_id = 1;
+    string answer_value =2;
+    string correct_answer=3;
+  }
+  message Question {
+    string question_id = 1;
+    string question_value =2;
+    repeated Answer answers = 4;
+
+  }
+  repeated Question questions = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
